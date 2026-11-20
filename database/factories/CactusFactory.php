@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CactusType;
 use App\Models\Cactus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,16 +20,14 @@ class CactusFactory extends Factory
     {
         return [
             'name' => fake()->word(),
-            'type' => fake()->word(),
-            'dmg' => fake()->randomFloat(2, 0, 100),
-            'speed' => fake()->randomFloat(2, 0, 100),
-            'mana' => fake()->randomFloat(2, 0, 100),
-            'hp' => fake()->randomFloat(2, 0, 100),
-            'owner' => fake()->word(),
+            'type' => fake()->randomElement(CactusType::cases()),
+            'dmg' => fake()->numberBetween(0, 100),
+            'speed' => fake()->numberBetween(0, 100),
+            'mana' => fake()->numberBetween(0, 100),
+            'hp' => fake()->numberBetween(1, 100),
+            'owner' => fake()->name(),
             'image_path' => fake()->imageUrl(),
             'hat_id' => null,
-            'created_at' => now(),
-            'updated_at' => now(),
         ];
     }
 }
