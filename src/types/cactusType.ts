@@ -12,3 +12,15 @@ export interface CactusType {
   mana: number
   hat: HatType | null
 }
+
+export interface CactusInput {
+  name: string
+  type: 'harcos' | 'varazslo' | 'sarkany'
+  owner: string
+  image_path: string
+  dmg: number
+  hp: number
+  speed: number
+  mana: number
+  hat_id: number | null
+}
